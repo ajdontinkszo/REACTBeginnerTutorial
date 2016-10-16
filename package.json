@@ -1,5 +1,5 @@
 {
-  "name": "blank_webpack",
+  "name": "REACTBeginnerTutorial",
   "version": "0.1.0",
   "description": "ready to start codeing",
   "main": "",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ajdontinkszo/blank-webpack-configs-ready-to-use.git"
+    "url": "https://github.com/ajdontinkszo/REACTBeginnerTutorial.git"
   },
   "keywords": [
     "react",
