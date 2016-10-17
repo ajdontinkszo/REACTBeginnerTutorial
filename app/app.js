@@ -53,7 +53,8 @@ var Comment = React.createClass({
     },
 
     save: function () {
-        /*alert('Editing comment');*/
+        var val = this.refs.newText.value;
+        console.log("new comment: " + val);
         this.setState({editing: false});
     },
 
@@ -70,7 +71,7 @@ var Comment = React.createClass({
     renderForm: function() {
          return (
             <div className="commentContainer">
-                <textarea className="commentText">{this.props.children}</textarea>
+                <textarea ref="newText" defaultValue={this.props.children}></textarea>
                 <button onClick={this.save} className="button-success">Save</button>
             </div>
         );
