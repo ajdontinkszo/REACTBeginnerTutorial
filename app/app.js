@@ -86,14 +86,33 @@ var Comment = React.createClass({
     }
 });
 
+var Board = React.createClass({
+    
+    getInitialState: function() {
+        return {
+            comments: [
+                'I like bacon',
+                'Want to get ice cream?',
+                'Ok, we have enough comments now'
+            ]
+        };
+    },
 
+    render: function() {
+        return(
+            <div className="board">
+                {
+                    this.state.comments.map(function(text, index) {
+                        return(<Comment key={index}>{text}</Comment>);
+                    })
+                }
+            </div>
+        );
+    }
+});
 
 ReactDOM.render(
-    <div>
-        <Comment>Hey my name is Fercsi</Comment>
-        <Comment>Beans</Comment>
-        <Comment>Tuna</Comment>
-    </div>,
+    <Board />,
     document.getElementById('main')
 );
 
