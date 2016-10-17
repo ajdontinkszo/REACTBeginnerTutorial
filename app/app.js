@@ -4,43 +4,45 @@ import ReactDOM from 'react-dom';
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var Comment = React.createClass({
-        edit: function() {
-            alert('Editing comment');
-        },
-        
-        remove: function () {
-            alert("Removing comment");
-        },
-        
-        render: function () {
-            return (
-                <div className="commentContainer">
-                    <div className="commentText">{this.props.children}</div>
-                    <button onClick={this.edit} className="button-primary">Edit</button>
-                    <button onClick={this.remove} className="button-danger">Remove</button>
-                </div>
-            );
+
+
+var CheckBox = React.createClass({
+       
+
+    getInitialState: function() {
+        return {
+            checked: true,
+            h3Style: { color : 'green'}
         }
-    });
+    },
 
-var Component = React.createClass({
-  render: function() {
-    return (
-      <div>{this.props.text}</div>
-    );
- }
+    handleChecked: function(){
+        this.setState({checked: !this.state.checked})
+    },
 
+    render: function() {
+      var msg;
+      if (this.state.checked){
+          msg = 'checked',
+          this.state.h3Style.color = 'green'
+      } else {
+          msg = 'unchecked'
+          this.state.h3Style.color = 'red'
+      }
+      return (
+          <div>
+            <input type="checkbox" onChange={this.handleChecked} defaultChecked="this.state.checked" />
+            <h3 style={this.state.h3Style}>Checkbox is {msg}</h3>
+          </div>
+      );
+      
+  }
+
+  
 });
 
 ReactDOM.render(
-    <div>
-        <Comment>Hey my name is Fercsi</Comment>
-        <Comment>Beans</Comment>
-        <Comment>Tuna</Comment>
-    </div>,
-
-
+    <CheckBox />,
     document.getElementById('main')
 );
     
